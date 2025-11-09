@@ -1,0 +1,15 @@
+{
+  "name": "tigr.c",
+  "version": "3.2.1",
+  "description": "TIGR - the TIny GRaphics library for Windows, macOS, Linux, iOS and Android.",
+  "keywords": ["c", "library", "graphics", "tigr", "windows", "macos", "linux", "ios", "android"],
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodef/tigr.c.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nodef/tigr.c/issues"
+  },
+  "homepage": "https://github.com/nodef/tigr.c#readme"
+}

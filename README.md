@@ -30,6 +30,28 @@ There are no additional libraries to include; everything is baked right into you
 
 TIGR is free to copy with no restrictions; see [tigr.h](tigr.h).
 
+## Installation
+
+Run:
+```bash
+$ npm i tigr.c
+```
+
+And then include `tigr.h` as follows:
+```c
+#include "node_modules/tigr.c/tigr.h"
+```
+
+You may also want to include `tigr.c` as follows:
+```c
+#ifndef __TIGR_C__
+#define __TIGR_C__
+#include "node_modules/tigr.c/tigr.c"
+#endif
+```
+
+This will include both the function declaration and their definitions into a single file.
+
 ## How do I program with TIGR?
 ![](./demo.gif)
 
@@ -58,7 +80,7 @@ int main(int argc, char *argv[])
 
 TIGR is supplied as a single .c and corresponding .h file.
 
-To use it, you just drop them right into your project.
+To use it, you just include them into your project.
 
 1. Grab  **tigr.c** and **tigr.h**
 2. Throw them into your project.
@@ -109,3 +131,10 @@ See the [shader example](examples/shader/shader.c) for more details.
 ## Known issues
 
 On macOS, seemingly depending on SDK version and if you use TIGR in an Xcode project, you need to define `OBJC_OLD_DISPATCH_PROTOTYPES` to avoid problems with `objc_msgSend` prototypes.
+
+<br>
+<br>
+
+
+[![ORG](https://img.shields.io/badge/org-nodef-green?logo=Org)](https://nodef.github.io)
+![](https://ga-beacon.deno.dev/G-RC63DPBH3P:SH3Eq-NoQ9mwgYeHWxu7cw/github.com/nodef/tigr.c)
