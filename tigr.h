@@ -1,0 +1,5 @@
+#pragma once
+#include "tigr/tigr.h"
+#ifdef TIGR_IMPLEMENTATION
+#include "tigr/tigr.c"
+#endif
