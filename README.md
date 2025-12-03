@@ -42,18 +42,36 @@ $ npm i tigr.c
 
 And then include `tigr.h` as follows:
 ```c
+// main.c
+#define TIGR_IMPLEMENTATION
 #include "node_modules/tigr.c/tigr.h"
+
+int main() { /* ... */ }
 ```
 
-You may also want to include `tigr.c` as follows:
+And then compile with `clang` or `gcc` as usual.
+
+```bash
+$ clang main.c  # or, use gcc
+$ gcc   main.c
+```
+
+You may also use a simpler approach:
+
 ```c
-#ifndef __TIGR_C__
-#define __TIGR_C__
-#include "node_modules/tigr.c/tigr.c"
-#endif
+// main.c
+#define TIGR_IMPLEMENTATION
+#include <tigr.h>
+
+int main() { /* ... */ }
 ```
 
-This will include both the function declaration and their definitions into a single file.
+If you add the path to `node_modules/tigr.c` to your compiler's include paths.
+
+```bash
+$ clang -I./node_modules/tigr.c main.c  # or, use gcc
+$ gcc   -I./node_modules/tigr.c main.c
+```
 
 <br>
 
@@ -63,20 +81,18 @@ This will include both the function declaration and their definitions into a sin
 
 Here's an example Hello World program. For more information, just read [tigr.h](tigr.h) to see the APIs available.
 
-```C
+```c
 #include "tigr.h"
 
-int main(int argc, char *argv[])
-{
-    Tigr *screen = tigrWindow(320, 240, "Hello", 0);
-    while (!tigrClosed(screen))
-    {
-        tigrClear(screen, tigrRGB(0x80, 0x90, 0xa0));
-        tigrPrint(screen, tfont, 120, 110, tigrRGB(0xff, 0xff, 0xff), "Hello, world.");
-        tigrUpdate(screen);
-    }
-    tigrFree(screen);
-    return 0;
+int main(int argc, char *argv[]) {
+  Tigr *screen = tigrWindow(320, 240, "Hello", 0);
+  while (!tigrClosed(screen)) {
+    tigrClear(screen, tigrRGB(0x80, 0x90, 0xa0));
+    tigrPrint(screen, tfont, 120, 110, tigrRGB(0xff, 0xff, 0xff), "Hello, world.");
+    tigrUpdate(screen);
+  }
+  tigrFree(screen);
+  return 0;
 }
 ```
 
@@ -87,17 +103,14 @@ int main(int argc, char *argv[])
 
 ### Desktop (Windows, macOS, Linux)
 
-TIGR is supplied as a single .c and corresponding .h file.
-
 To use it, you just include them into your project.
 
-1. Grab  **tigr.c** and **tigr.h**
-2. Throw them into your project.
-3. Link with
+1. Define `TIGR_IMPLEMENTATION` in **one** source file before including `tigr.h`.
+2. Link with
     - -lopengl32 and -lgdi32 on Windows
     - -framework OpenGL and -framework Cocoa on macOS
     - -lGLU -lGL -lX11 on Linux
-4. You're done!
+3. You're done!
 
 ### Android
 

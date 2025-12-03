@@ -22,7 +22,6 @@ if [ ! -d "$DIR" ]; then
   unzip -q "$ZIP"
   rm "$ZIP"
   mv "$ZIP.bak" "$ZIP"
-  echo ""
 fi
 
 # Copy the libs to the package directory
@@ -31,4 +30,3 @@ rm -rf ../tigr
 mkdir -p ../tigr
 cp -f "$DIR/tigr.h" ../tigr/
 cp -f "$DIR/tigr.c" ../tigr/
-echo ""
