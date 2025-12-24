@@ -1,3 +1,8 @@
+# Build files
 .build/
-images/
 build.sh
+
+# Example artifacts
+examples/
+images/
+*.exe

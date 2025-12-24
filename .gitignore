@@ -1,8 +1,6 @@
-# TIGR files
-tigr/
-
-# Build directory
+# Build artifacts
 .build/
+*.exe
 
 # Logs
 logs
