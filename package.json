@@ -1,6 +1,6 @@
 {
   "name": "tigr.c",
-  "version": "3.2.5",
+  "version": "3.2.6",
   "description": "TIGR - the TIny GRaphics library for Windows, macOS, Linux, iOS and Android.",
   "keywords": [
     "c",
